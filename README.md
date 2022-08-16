@@ -10,4 +10,5 @@ An alternative to compiling and running this code is using DOSBOX.
 
 ![bc_000](https://user-images.githubusercontent.com/41028126/184834960-4f5fce3f-4afa-4972-a61e-8d66634a8a75.png)
 
-![299283677_469812984679199_3039346088625793841_n](https://user-images.githubusercontent.com/41028126/184838139-c7edb70a-9a89-4a81-a098-889453d7e443.png)
+
+![299283677_469812984679199_3039346088625793841_n](https://user-images.githubusercontent.com/41028126/184838288-309ded49-53bd-4fbf-b5dd-0782cba10a5b.png)

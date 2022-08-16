@@ -10,5 +10,8 @@ An alternative to compiling and running this code is using DOSBOX.
 
 ![bc_000](https://user-images.githubusercontent.com/41028126/184834960-4f5fce3f-4afa-4972-a61e-8d66634a8a75.png)
 
-
-![299283677_469812984679199_3039346088625793841_n](https://user-images.githubusercontent.com/41028126/184838288-309ded49-53bd-4fbf-b5dd-0782cba10a5b.png)
+## Projects
+### Line Drawing
+The line drawing project is a simple project that demonstrates a few core concepts of writting to the VGA buffer and using bios interreptus to draw lines and pixels on the screen.
+### Game / Game Engine (SPARTAN)
+The SPARTAN project is a more elaborate project where I'm aiming to create a small game / game engine this project is still in the early stages of developemnt but has some WIP classes for renderering.

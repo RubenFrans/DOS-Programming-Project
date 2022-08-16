@@ -1,0 +1,77 @@
+#include "RENDERER.H"
+#include <iostream.h>
+#include <stdlib.h>
+#include <dos.h>
+
+Renderer::Renderer()
+	: m_CurrentVideoMode(TEXT)
+{
+
+}
+
+Renderer::~Renderer(){
+
+}
+
+void Renderer::PlotPixel(int x, int y, byte color){
+	union REGS regs;
+	regs.h.ah = WRITE_DOT;
+	regs.h.al = color;
+	regs.x.cx = x;
+	regs.x.dx = y;
+	int86(VIDEO_INT, &regs,&regs);
+}
+
+void Renderer::PlotPixelFast(int x, int y, byte color){
+  int offset = (y<<8) + (y<<6) + x;
+  VGA[offset]=color;
+}
+
+void Renderer::DrawLine(int x1, int y1, int x2, int y2, byte color){
+	int i, dx, dy, sdx, sdy, dxabs, dyabs, x, y, px, py;
+	dx=x2-x1;
+	dy=y2-y1;
+	dxabs=abs(dx);
+	dyabs=abs(dy);
+	sdx=sgn(dx);
+	sdy=sgn(dy);
+	//sdx = ((x<0) ? -1: ((x>0)?1:0));
+	//sdy = ((x<0)?-1:((x>0)?1:0));
+	x=dyabs>>1;
+	y=dxabs>>1;
+	px=x1;
+	py=y1;
+
+	VGA[(py<<8)+(py<<6)+px] = color;
+
+	if(dxabs >= dyabs) // the line is more horizontal than vertical
+	{
+		for(i = 0; i < dxabs; i++){
+			y+=dyabs;
+			if(y>=dxabs){
+				y-=dxabs;
+				py+=sdy;
+
+			}
+			px += sdx;
+			PlotPixelFast(px, py, color);
+		}
+	}
+	else // The line is more vertical than horizontal
+	{
+		cout << "More vertical lines not implemented yet" << endl;
+	}
+}
+
+void Renderer::DrawBitmap(){
+
+}
+
+void Renderer::SetVideoMode(byte mode){
+
+	union REGS regs;
+	regs.h.ah = SET_MODE;
+	regs.h.al = mode;
+	int86(VIDEO_INT, &regs, &regs);
+
+}

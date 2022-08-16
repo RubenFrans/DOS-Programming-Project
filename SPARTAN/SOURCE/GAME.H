@@ -1,0 +1,16 @@
+#ifndef GAME_H_
+#define GAME_H_
+#include "RENDERER.H"
+class Game {
+public:
+   Game();
+   ~Game();
+   void Run();
+
+private:
+	int m_IsRunning;
+	int m_CurrentRunTime;
+	int m_MaxRunTime;
+	Renderer m_Renderer;
+};
+#endif

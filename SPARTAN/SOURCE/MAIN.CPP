@@ -1,0 +1,11 @@
+#include <iostream.h>
+#include "game.h"
+
+int main(){
+	cout << "Game is starting" << endl;
+	Game game = Game();
+	game.Run();
+
+	cout << "Game is finished, cleaning up!" << endl;
+	return 0;
+}

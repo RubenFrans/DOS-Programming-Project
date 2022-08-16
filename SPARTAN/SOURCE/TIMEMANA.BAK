@@ -1,0 +1,40 @@
+#include <dos.h>
+#include <mem.h>
+
+#include "timemana.h"
+#include <iostream.h>
+
+float TimeMana::m_CurrentDeltaTime=0;
+float TimeMana::m_CurrentElapsedTime=0;
+
+// Gets called every update to set new delta time
+void TimeMana::UpdateDeltaTime()
+{
+	union REGS regs;
+	regs.h.ah = 0X00;
+	//regs.h.al = ;
+	int86(0X1A, &regs, &regs);
+	m_CurrentDeltaTime = regs.x.cx;
+	int hours = regs.x.dx;
+	int minutes = regs.x.cx;
+	cout << hours << ":" << minutes << endl;
+
+}
+
+// Only gets calculated when the GetElapsedTime() gets called
+void TimeMana::UpdateElapsedTime()
+{
+
+}
+
+float TimeMana::GetDeltaTime() const
+{
+	return m_CurrentDeltaTime;
+}
+
+float TimeMana::GetElapsedTime()
+{
+	UpdateElapsedTime();
+	return m_CurrentElapsedTime;
+}
+

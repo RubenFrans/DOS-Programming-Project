@@ -1,6 +1,6 @@
 # DOS-Programming-Project
 This repository contains the code of programming experiments created in order to learn programming for MS-DOS.
-Please be aware that this is code for an almost 30 year old operating system using an almost 30 year old C++ compiler.
+Please be aware that this is code is written on an almost 30 year old operating system using an almost 30 year old C++ compiler and software.
 Thus this code base can contain old and weird coding standards in comparisson to modern C++ standards.
 
 ## Hardware and software
